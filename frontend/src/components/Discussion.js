@@ -6,6 +6,14 @@ function Discussion () {
   const [timestamps, setTimestamps] = useState([])
 
   // add useEffect here for discussion
+  useEffect(() => {
+    fetch('http://localhost:4001/getdiscussions')
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setDiscussion(data)
+    })
+  }, [])
 
   useEffect(() => {
     if (discussion.length > 0) {
